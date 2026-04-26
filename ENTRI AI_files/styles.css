@@ -1,0 +1,273 @@
+/* Engine AI — Editorial Fintech Landing */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&family=Instrument+Serif:ital@0;1&display=swap');
+
+:root {
+  --bg: #000000;
+  --bg-elev: #07090d;
+  --bg-navy: #0a1020;
+  --bg-charcoal: #0e1116;
+  --line: rgba(255, 255, 255, 0.08);
+  --line-strong: rgba(255, 255, 255, 0.14);
+  --text: #f5f6f8;
+  --text-dim: rgba(245, 246, 248, 0.62);
+  --text-faint: rgba(245, 246, 248, 0.38);
+  --accent: #6aa9ff;          /* soft electric blue */
+  --accent-glow: rgba(106, 169, 255, 0.35);
+  --accent-soft: rgba(106, 169, 255, 0.12);
+  --serif: 'Instrument Serif', 'Times New Roman', serif;
+  --sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "ss01", "cv11";
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* Selection */
+::selection {
+  background: var(--accent-soft);
+  color: var(--text);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: #000; }
+::-webkit-scrollbar-thumb { background: #1a1f2a; border-radius: 10px; }
+
+/* Layout helpers */
+.shell {
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+.eyebrow {
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.eyebrow::before {
+  content: "";
+  width: 18px;
+  height: 1px;
+  background: var(--text-faint);
+  display: inline-block;
+}
+
+/* Headlines */
+.h-display {
+  font-family: var(--sans);
+  font-weight: 200;
+  font-size: clamp(44px, 6.6vw, 96px);
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+  margin: 0;
+  color: var(--text);
+}
+
+.h-display .serif {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: -0.02em;
+}
+
+.h-section {
+  font-family: var(--sans);
+  font-weight: 200;
+  font-size: clamp(32px, 4.2vw, 56px);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  margin: 0;
+}
+
+.h-section .serif {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-style: italic;
+}
+
+.lede {
+  font-size: 17px;
+  line-height: 1.55;
+  font-weight: 300;
+  color: var(--text-dim);
+  max-width: 540px;
+}
+
+/* Glass treatment */
+.glass {
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.025) 0%, rgba(255,255,255,0.005) 100%),
+    rgba(10, 14, 22, 0.55);
+  border: 1px solid var(--line);
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+}
+
+.glass-strong {
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%),
+    rgba(14, 18, 28, 0.7);
+  border: 1px solid var(--line-strong);
+  backdrop-filter: blur(28px) saturate(140%);
+  -webkit-backdrop-filter: blur(28px) saturate(140%);
+}
+
+/* CTA */
+.cta {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 26px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: -0.005em;
+  color: var(--text);
+  text-decoration: none;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02)),
+    rgba(8, 12, 20, 0.6);
+  border: 1px solid rgba(255,255,255,0.18);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(.2,.7,.2,1);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.08),
+    0 1px 0 rgba(0,0,0,0.6),
+    0 20px 40px -20px rgba(106,169,255,0.25);
+}
+
+.cta:hover {
+  border-color: rgba(106,169,255,0.45);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.12),
+    0 0 0 1px rgba(106,169,255,0.08),
+    0 30px 60px -20px rgba(106,169,255,0.45);
+  transform: translateY(-1px);
+}
+
+.cta .arrow {
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  background: var(--accent);
+  display: inline-flex; align-items: center; justify-content: center;
+  color: #000;
+  transition: transform 0.4s cubic-bezier(.2,.7,.2,1);
+}
+
+.cta:hover .arrow { transform: translateX(2px); }
+
+.cta-ghost {
+  color: var(--text-dim);
+  background: transparent;
+  border: 1px solid var(--line);
+  box-shadow: none;
+}
+.cta-ghost:hover {
+  color: var(--text);
+  border-color: var(--line-strong);
+  background: rgba(255,255,255,0.02);
+}
+
+/* Section */
+section {
+  position: relative;
+  width: 100%;
+}
+
+.divider {
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(90deg, transparent, var(--line), transparent);
+}
+
+/* Glow */
+.glow {
+  position: absolute;
+  pointer-events: none;
+  filter: blur(80px);
+  opacity: 0.6;
+  z-index: 0;
+}
+
+/* Subtle grid */
+.grid-bg {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+  background-size: 80px 80px;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, #000 30%, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, #000 30%, transparent 80%);
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+/* Noise overlay */
+.noise {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.06;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+}
+
+/* Hover-reactive accent line */
+.accent-line {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  opacity: 0.5;
+}
+
+/* Section number tag */
+.sec-num {
+  font-family: var(--serif);
+  font-style: italic;
+  color: var(--text-faint);
+  font-size: 14px;
+  font-weight: 400;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* Hide scrollbar utility */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { scrollbar-width: none; }
+
+/* fade-in on intersection */
+.fade-up {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.9s cubic-bezier(.2,.7,.2,1), transform 0.9s cubic-bezier(.2,.7,.2,1);
+}
+.fade-up.in {
+  opacity: 1;
+  transform: translateY(0);
+}
